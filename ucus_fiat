@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class ucak {
+    public static void main(String[] args) {
+        double km, age, tip, total = 1, discount = 0, price;
+
+        Scanner bjk = new Scanner(System.in);
+
+        System.out.println("MESAFE ( km ) GIRINIZ  : ");
+        km = bjk.nextInt();
+        if (km < 0) {
+            System.out.println("HATALI MESAFE !!!! ");
+            System.exit(0);
+        }
+
+        System.out.println("YAS BILGISI GIRINIZ  : ");
+        age = bjk.nextInt();
+        if (age < 0) {
+            System.out.println("HATALI YAS !!!! ");
+            System.exit(0);
+        }
+
+        System.out.println("UCUS TIPINI SECINIZ \n : 1-Tek Yon \n : 2-Gidis-Donus ");
+        tip = bjk.nextInt();
+        if (tip == 1) {
+            total = (km * 0.1);
+        } else if (tip == 2) {
+            total = (km * 0.2);
+
+        } else {
+            System.out.println("ERROR ! UCUS TIPINI DUZGUN GIRINIZ ");
+        }
+        System.out.println("UCUS TUTARI : " + total);
+        System.out.println("UCUS INDIRIMINIZ HESAPLANIYOR ... ");
+
+
+        if (age < 12) {
+            discount = total * 0.5;
+        } else if (age < 15) {
+            discount = total * 0.1;
+        } else if (age > 65) {
+            discount = total * 0.3;
+        }
+
+
+        if (tip == 1) {
+            price = total - discount;
+        } else {
+            price = ((total - discount) * 0.2) + discount;
+        }
+
+        System.out.println("INDIRIM HESAPLANDI ..");
+        System.out.println("UCUS ICIN ODENILECEK TUTAR  : " + price);
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
